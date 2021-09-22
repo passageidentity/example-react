@@ -3,6 +3,11 @@ import axios from "axios";
 import Cookie from "js-cookie";
 
 class Dashboard extends React.Component {
+  logout() {
+    Cookie.remove("psg_auth_token");
+    console.log("logging out");
+  }
+
   constructor() {
     super();
     this.cookieValue = Cookie.get("psg_auth_token");
@@ -51,6 +56,13 @@ class Dashboard extends React.Component {
           </div>
           <div className="img-container">
             <img src="assets/launch.png" alt="People Celebrating" />
+          </div>
+          <div className="footer">
+            <a href="/">
+              <button className="btn btn-lg" onClick={this.logout}>
+                Log Out
+              </button>
+            </a>
           </div>
         </div>
 
