@@ -18,7 +18,7 @@ Navigate to the backend folder and add the respective Passage APP ID and API Key
 
 ### Frontend
 
-You'll need to navigate to the frontend folder set the environment variable equal to your APP ID. Be sure to rename the `EXAMPLE.env` file to just `.env` when you are finished.
+You'll need to navigate to the frontend folder and set the environment variable equal to your APP ID. Be sure to rename the `EXAMPLE.env` file to just `.env` when you are finished.
 
 ## Start the Backend Server
 
@@ -26,7 +26,7 @@ Next we'll need to start the `backend` server. Navigate to the backend folder an
 
 ## Start the Frontend Server
 
-To start the `frontend` server, we'll need to open another bash window, navigate to the backend folder and run: `npm run start`.
+To start the `frontend` server, we'll need to open another shell window, navigate to the backend folder and run: `npm run start`.
 
 ## Authenticate Requests With Passage
 
