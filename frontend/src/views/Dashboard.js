@@ -2,7 +2,14 @@ import React from "react";
 import axios from "axios";
 import Cookie from "js-cookie";
 
+const SERVER_PORT = 7000;
+
 class Dashboard extends React.Component {
+  logout() {
+    Cookie.remove("psg_auth_token");
+    console.log("logging out");
+  }
+
   constructor() {
     super();
     this.cookieValue = Cookie.get("psg_auth_token");
@@ -10,7 +17,7 @@ class Dashboard extends React.Component {
 
   componentDidMount() {
     axios
-      .post("http://localhost:7000/auth", null, {
+      .post(`http://localhost:${SERVER_PORT}/auth`, null, {
         headers: {
           Authorization: `Bearer ${this.cookieValue}`,
         },
@@ -51,6 +58,13 @@ class Dashboard extends React.Component {
           </div>
           <div className="img-container">
             <img src="assets/launch.png" alt="People Celebrating" />
+          </div>
+          <div className="footer">
+            <a href="/">
+              <button className="btn btn-lg" onClick={this.logout}>
+                Log Out
+              </button>
+            </a>
           </div>
         </div>
 
