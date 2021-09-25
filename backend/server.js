@@ -3,13 +3,15 @@ const Passage = require("@passageidentity/passage-node");
 const cors = require("cors");
 
 app = express();
-port = 7000;
+PORT = 7000;
+CLIENT_URL = "http://localhost:3000";
+
 require("dotenv").config();
 
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: CLIENT_URL,
   })
 );
 
@@ -39,6 +41,6 @@ app.post("/auth", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
 });

@@ -1,33 +1,47 @@
 # Passage Example React App
 
-## Installing Dependencies
-
-Navigate to the main folder that contains both the `backend` and `frontend` folders and run the following command to install dependencies for both the `backend` and `frontend`:
-
-```bash
-$ cd backend; npm i; cd ../frontend; npm i;
-```
+This example application uses the Passage Element in a React application to authenticate users using biometrics or magic links. The server uses the 
+Passage Node.js SDK to verify users on authenticated endpoints. To run this example application, follow the instructions below to install and start the 
+frontend and backend server.
 
 ## Configure Your Environment Variables
 
-### Backend
+1. For both the frontend and backend folders, copy the EXAMPLE.env file to your own .env file.
+2. Replace the example variables with your own Passage App ID and API Key. You can get these from the [Passage Console](https://console.passage.id).
 
-You'll need your Passage APP ID and API Key. To get your application's APP ID and API Key, [Visit your Passage console](https://console.passage.id/).
+## Building the Server
 
-Navigate to the backend folder and add the respective Passage APP ID and API Key to their corresponding values in the `EXAMPLE.env` file. Be sure to rename the file to just `.env` when you are finished.
+Navigate to the backend folder and do the following:
 
-### Frontend
+Install dependencies
+```bash
+npm install
+```
 
-You'll need to navigate to the frontend folder and set the environment variable equal to your APP ID. Be sure to rename the `EXAMPLE.env` file to just `.env` when you are finished.
+Start the server in development mode
+```bash
+npm run start
+```
 
-## Start the Backend Server
+The server will run on http://localhost:7000.
 
-Next we'll need to start the `backend` server. Navigate to the backend folder and run the command `npm run start`.
 
-## Start the Frontend Server
+## Building the Client
 
-To start the `frontend` server, we'll need to open another shell window, navigate to the backend folder and run: `npm run start`.
+Navigate to the frontend folder and do the following:
+
+Install dependencies
+```bash
+npm install
+```
+
+Start the client in development mode
+```bash
+npm run start
+```
+
+The client will run on http://localhost:3000, which you can navigate to in your browser.
 
 ## Authenticate Requests With Passage
 
-Navigate to [http://localhost:3000](http://localhost:3000) and see what it's like authenticating users using Passage with React and Express!
+Navigate to [http://localhost:3000](http://localhost:3000) and see what it's like authenticating users using Passage with React and Express.js!
