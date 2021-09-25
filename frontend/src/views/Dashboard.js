@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import Cookie from "js-cookie";
 
-const SERVER_PORT = 7000;
+const API_URL = "http://localhost:7000";
 
 class Dashboard extends React.Component {
   logout() {
@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
 
   componentDidMount() {
     axios
-      .post(`http://localhost:${SERVER_PORT}/auth`, null, {
+      .post(`${API_URL}/auth`, null, {
         headers: {
           Authorization: `Bearer ${this.cookieValue}`,
         },
@@ -28,12 +28,10 @@ class Dashboard extends React.Component {
         let unauthorizedDiv = document.getElementById("unauthorized");
 
         if (authStatus === "success") {
-          console.log(response.data.authStatus);
           document.getElementById("userEmail").innerHTML = email;
           authorizedDiv.style.display = "";
           unauthorizedDiv.style.display = "none";
         } else {
-          console.log(authStatus);
           unauthorizedDiv.style.display = "";
           authorizedDiv.style.display = "none";
         }
