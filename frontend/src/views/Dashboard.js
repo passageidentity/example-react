@@ -7,6 +7,7 @@ const SERVER_PORT = 7000;
 class Dashboard extends React.Component {
   logout() {
     Cookie.remove("psg_auth_token");
+    localStorage.removeItem("psg_auth_token");
     console.log("logging out");
   }
 
