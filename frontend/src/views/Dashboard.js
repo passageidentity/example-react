@@ -1,4 +1,3 @@
-import React from "react";
 import Cookie from "js-cookie";
 import { useAuthStatus } from "../models/hooks/useAuthStatus";
 
@@ -65,12 +64,12 @@ function Dashboard(){
     );
   }
 
-    return (
-      <>
+  return (
+    <>
       <div className="bg-poly"></div>
       { isLoading ? loading() : isAuthorized ? authorized(userEmail) : unauthorized() }
-      </>
-    )
-  };
+    </>
+  )
+};
 
 export default Dashboard;

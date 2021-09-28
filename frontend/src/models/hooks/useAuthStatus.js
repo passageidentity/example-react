@@ -9,29 +9,29 @@ export function useAuthStatus() {
 
   useEffect(()=>{
     let cancelRequest = false;
-    if (cancelRequest) {
-      return;
-    }
     const cookieValue = Cookie.get("psg_auth_token");
     axios
-    .post(`${API_URL}/auth`, null, {
-      headers: {
-        Authorization: `Bearer ${cookieValue}`,
-      },
-    })
-    .then((response) => {
-      const { authStatus, email } = response.data;
-      if (authStatus === "success") {
-        setResult({isLoading: false, isAuthorized: authStatus, userEmail: email});
-      }else{
+      .post(`${API_URL}/auth`, null, {
+        headers: {
+          Authorization: `Bearer ${cookieValue}`,
+        },
+      })
+      .then((response) => {
+        if (cancelRequest) {
+          return;
+        }
+        const { authStatus, email } = response.data;
+        if (authStatus === "success") {
+          setResult({isLoading: false, isAuthorized: authStatus, userEmail: email});
+        }else{
+          setResult({isLoading: false, isAuthorized: false, userEmail: ''});
+        }
+      })
+      .catch((err) => {
+        console.log(err);
         setResult({isLoading: false, isAuthorized: false, userEmail: ''});
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      setResult({isLoading: false, isAuthorized: false, userEmail: ''});
-    });
+      });
     return (()=>{ cancelRequest = true; });
-  }, [])
+  }, []);
   return result;
 }
