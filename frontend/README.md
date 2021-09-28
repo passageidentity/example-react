@@ -1,5 +1,4 @@
-# Getting Started with Create React App
-
+# Getting Started with React and Passage
 This example demonstrates how to integrate Passage into a React front-end application.
 
 ## Setting Up Environment Variables
