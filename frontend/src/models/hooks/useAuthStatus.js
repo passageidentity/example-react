@@ -9,10 +9,10 @@ export function useAuthStatus() {
 
   useEffect(()=>{
     let cancelRequest = false;
-    const cookieValue = Cookie.get("psg_auth_token");
     if (cancelRequest) {
       return;
     }
+    const cookieValue = Cookie.get("psg_auth_token");
     axios
     .post(`${API_URL}/auth`, null, {
       headers: {

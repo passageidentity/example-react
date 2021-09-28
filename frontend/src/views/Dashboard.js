@@ -2,12 +2,6 @@ import React from "react";
 import Cookie from "js-cookie";
 import { useAuthStatus } from "../models/hooks/useAuthStatus";
 
-function logout() {
-  Cookie.remove("psg_auth_token");
-  localStorage.removeItem("psg_auth_token");
-  console.log("logging out");
-}
-
 function Dashboard(){
 
   const { isLoading, isAuthorized, userEmail } = useAuthStatus();
@@ -18,6 +12,11 @@ function Dashboard(){
         loop
       </div>
     );
+  }
+
+  function logout() {
+    Cookie.remove("psg_auth_token");
+    localStorage.removeItem("psg_auth_token");
   }
 
   function authorized(email) {

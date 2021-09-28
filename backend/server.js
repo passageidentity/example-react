@@ -23,7 +23,6 @@ let passage = new Passage({
 
 app.post("/auth", async (req, res) => {
   try {
-    //await new Promise(resolve => setTimeout(resolve, 1000));
     let userID = await passage.authenticateRequest(req);
     if (userID) {
       // user is authenticated
