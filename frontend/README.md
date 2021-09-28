@@ -1,70 +1,32 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This example demonstrates how to integrate Passage into a React front-end application.
 
-## Available Scripts
+## Setting Up Environment Variables
 
-In the project directory, you can run:
+1. Get your Passage App ID from the [Passage Console](https://console.passage.id).
+1. Copy placeholder values from `EXAMPLE.env` into your own `.env` file.
+1. Update REACT_APP_PASSAGE_APP_ID with your Passage App ID.
 
-### `yarn start`
+## Importing and Using the Passage-Auth Custom Element
+The easiest way to add authentication to a web frontend is with a Passage Auth custom element. First you'll need to import the passage-web javascript from the Passage CDN. This is done in this example in [public/index.html](https://github.com/passageidentity/example-react/blob/main/frontend/public/index.html):
+```html
+<script src="https://cdn.passage.id/passage-web.js" defer></script>
+```
+Importing this script will register the Passage custom element for use in your React components. For more information about custom elements refer to the [online documentation](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Its then just a matter of embedding the passage-auth element into your component that will handle login. This is done in this example in [src/views/Home.js](https://github.com/passageidentity/example-react/blob/main/frontend/src/views/Home.js):
+```html
+<div className="form-container">
+  <passage-auth
+    app-id={process.env.REACT_APP_PASSAGE_APP_ID}
+  />
+</div>
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Authentication Status and User Information
+After the user has logged in through the authentication the request needs to be authenticated using the Passage API and an API key. This API key is sensitive information and should only be handled securly by your backend code.
 
-### `yarn test`
+This project uses a simple [Express](https://expressjs.com/) backend and the [Passage Node API](https://www.npmjs.com/package/@passageidentity/passage-node) to authenticate request and retrieve user data.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This example wraps communication with the backend API in a custom hook in [src/models/hooks/useAuthStatus.js](https://github.com/passageidentity/example-react/blob/main/frontend/src/models/hooks/useAuthStatus.js) for re-use in any react component.
