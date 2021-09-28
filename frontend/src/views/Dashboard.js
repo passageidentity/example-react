@@ -10,14 +10,14 @@ function logout() {
 
 function Dashboard(){
 
-  const {isLoading, isAuthorized, userEmail} = useAuthStatus();
+  const { isLoading, isAuthorized, userEmail } = useAuthStatus();
 
   function loading() {
-    //return(<></>)
     return (
-    <div className="material-icons loading">
-      loop
-    </div>);
+      <div className="material-icons loading">
+        loop
+      </div>
+    );
   }
 
   function authorized(email) {

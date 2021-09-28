@@ -31,7 +31,7 @@ export function useAuthStatus() {
       console.log(err);
       setResult({isLoading: false, isAuthorized: false, userEmail: ''});
     });
-    return (()=>{cancelRequest = true;})
+    return (()=>{ cancelRequest = true; });
   }, [])
   return result;
 }
