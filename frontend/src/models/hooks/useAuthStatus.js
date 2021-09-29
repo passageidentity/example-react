@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import Cookie from 'js-cookie';
 
 const API_URL = "http://localhost:7000";
 
@@ -9,11 +8,11 @@ export function useAuthStatus() {
 
   useEffect(()=>{
     let cancelRequest = false;
-    const cookieValue = Cookie.get("psg_auth_token");
+    const authToken = localStorage.getItem("psg_auth_token");
     axios
       .post(`${API_URL}/auth`, null, {
         headers: {
-          Authorization: `Bearer ${cookieValue}`,
+          Authorization: `Bearer ${authToken}`,
         },
       })
       .then((response) => {
