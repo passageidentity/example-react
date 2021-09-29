@@ -65,7 +65,7 @@ Its then just a matter of embedding the passage-auth element into your component
 ```
 
 ## Getting Authentication Status and User Information
-After the user has logged in with Passage, all requests to your backend needs to be authenticated using the JWT provided by Passage. In this example, we get the JWT from the `psg_auth_token` cookie and send it in an Authorization header to our API server. 
+After the user has logged in with Passage, all requests to your backend needs to be authenticated using the JWT provided by Passage. In this example, we set the JWT in an Authorization header to our API server. 
 
 This project uses a simple [Express](https://expressjs.com/) backend and the [Passage Node.js SDK](https://www.npmjs.com/package/@passageidentity/passage-node) to authenticate requests and retrieve user data for your application. You can see how that runs in the [/backend](https://github.com/passageidentity/example-react/tree/main/backend) folder of this repository.
 
