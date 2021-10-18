@@ -49,9 +49,13 @@ Navigate to [http://localhost:3000](http://localhost:3000) and see what it's lik
 # Using Passage with React
 
 ## Importing and Using the Passage-Auth Custom Element
-The easiest way to add authentication to a web frontend is with a Passage Auth custom element. First you'll need to import the passage-web javascript from the Passage CDN. This is done in this example in [frontend/public/index.html](https://github.com/passageidentity/example-react/blob/main/frontend/public/index.html):
-```html
-<script src="https://cdn.passage.id/passage-web.js" defer></script>
+The easiest way to add authentication to a web frontend is with a Passage Auth custom element. First you'll need to install the [passage-auth](https://www.npmjs.com/package/@passageidentity/passage-auth) package from npm:
+```
+npm i --save @passageidentity/passage-auth
+```
+Then import the package in the module where you intend to use the custom element
+```
+import '@passageidentity/passage-auth'
 ```
 Importing this script will register the Passage custom element for use in your React components. For more information about custom elements refer to the [online documentation](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 

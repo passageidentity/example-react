@@ -1,3 +1,5 @@
+import '@passageidentity/passage-auth'
+
 function Home() {
   return (
     <div>
