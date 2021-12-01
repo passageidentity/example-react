@@ -2,9 +2,9 @@ const express = require("express");
 const Passage = require("@passageidentity/passage-node");
 const cors = require("cors");
 
-app = express();
-PORT = 7000;
-CLIENT_URL = "http://localhost:3000";
+const app = express();
+const PORT = 7000;
+const CLIENT_URL = "http://localhost:3000";
 
 require("dotenv").config();
 
@@ -15,7 +15,7 @@ app.use(
   })
 );
 
-let passage = new Passage({
+const passage = new Passage({
   appID: process.env.REACT_APP_PASSAGE_APP_ID,
   apiKey: process.env.REACT_APP_PASSAGE_APP_API_KEY,
   authStrategy: "HEADER",
@@ -23,13 +23,15 @@ let passage = new Passage({
 
 app.post("/auth", async (req, res) => {
   try {
-    let userID = await passage.authenticateRequest(req);
+    const userID = await passage.authenticateRequest(req);
     if (userID) {
       // user is authenticated
-      let { email } = await passage.user.get(userID);
+      const { email, phone } = await passage.user.get(userID);
+      const identifier = email ? email : phone;
+
       res.json({
         authStatus: "success",
-        email,
+        identifier,
       });
     }
   } catch (e) {
