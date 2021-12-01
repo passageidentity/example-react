@@ -1,4 +1,4 @@
-import '@passageidentity/passage-auth'
+import "@passageidentity/passage-auth";
 
 function Home() {
   return (
@@ -11,9 +11,7 @@ function Home() {
       </div>
 
       <div className="form-container">
-        <passage-auth
-          app-id={process.env.REACT_APP_PASSAGE_APP_ID}
-        />
+        <passage-auth app-id={process.env.REACT_APP_PASSAGE_APP_ID} />
       </div>
 
       <div className="footer">

@@ -1,16 +1,11 @@
 import Cookie from "js-cookie";
 import { useAuthStatus } from "../models/hooks/useAuthStatus";
 
-function Dashboard(){
-
-  const { isLoading, isAuthorized, userEmail } = useAuthStatus();
+function Dashboard() {
+  const { isLoading, isAuthorized, userIdentifier } = useAuthStatus();
 
   function loading() {
-    return (
-      <div className="material-icons loading">
-        loop
-      </div>
-    );
+    return <div className="material-icons loading">loop</div>;
   }
 
   function logout() {
@@ -18,11 +13,11 @@ function Dashboard(){
     localStorage.removeItem("psg_auth_token");
   }
 
-  function authorized(email) {
+  function authorized(identifier) {
     return (
       <div id="authorized">
         <div className="header">
-          <span id="userEmail">{email}</span> signed in
+          <span id="userIdentifier">{identifier}</span> signed in
           <br />
           with <strong>Passage.</strong>
         </div>
@@ -40,7 +35,7 @@ function Dashboard(){
     );
   }
 
-  function unauthorized(){
+  function unauthorized() {
     return (
       <div id="unauthorized">
         <div className="header">
@@ -67,9 +62,13 @@ function Dashboard(){
   return (
     <>
       <div className="bg-poly"></div>
-      { isLoading ? loading() : isAuthorized ? authorized(userEmail) : unauthorized() }
+      {isLoading
+        ? loading()
+        : isAuthorized
+        ? authorized(userIdentifier)
+        : unauthorized()}
     </>
-  )
-};
+  );
+}
 
 export default Dashboard;

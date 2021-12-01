@@ -26,10 +26,18 @@ app.post("/auth", async (req, res) => {
     let userID = await passage.authenticateRequest(req);
     if (userID) {
       // user is authenticated
-      let { email } = await passage.user.get(userID);
+      let { email, phone } = await passage.user.get(userID);
+
+      let identifier;
+      if (email) {
+        identifier = email;
+      } else if (phone) {
+        identifier = phone;
+      }
+
       res.json({
         authStatus: "success",
-        email,
+        identifier,
       });
     }
   } catch (e) {
