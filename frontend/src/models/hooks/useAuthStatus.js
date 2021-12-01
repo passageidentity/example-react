@@ -25,8 +25,6 @@ export function useAuthStatus() {
         }
         const { authStatus, identifier } = response.data;
         if (authStatus === "success") {
-          console.log(response.data);
-
           setResult({
             isLoading: false,
             isAuthorized: authStatus,
