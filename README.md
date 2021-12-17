@@ -61,10 +61,8 @@ Importing this script will register the Passage custom element for use in your R
 
 It's then just a matter of embedding the passage-auth element into your component that will handle login. This is done in this example in [frontend/src/views/Home.js](https://github.com/passageidentity/example-react/blob/main/frontend/src/views/Home.js):
 ```html
-<div className="form-container">
-  <passage-auth
-    app-id={process.env.REACT_APP_PASSAGE_APP_ID}
-  />
+<div className={styles.authContainer}>
+  <passage-auth app-id={process.env.REACT_APP_PASSAGE_APP_ID}></passage-auth>
 </div>
 ```
 
