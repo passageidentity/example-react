@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import Home from "./views/Home";
 import Dashboard from "./views/Dashboard";
+import "./styles/style.css";
 
 const App = () => {
   return (

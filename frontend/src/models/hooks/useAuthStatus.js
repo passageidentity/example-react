@@ -7,7 +7,7 @@ export function useAuthStatus() {
   const [result, setResult] = useState({
     isLoading: true,
     isAuthorized: false,
-    userEmail: "",
+    username: "",
   });
 
   useEffect(() => {
@@ -28,13 +28,13 @@ export function useAuthStatus() {
           setResult({
             isLoading: false,
             isAuthorized: authStatus,
-            userIdentifier: identifier,
+            username: identifier,
           });
         } else {
           setResult({
             isLoading: false,
             isAuthorized: false,
-            userIdentifier: "",
+            username: "",
           });
         }
       })
@@ -43,7 +43,7 @@ export function useAuthStatus() {
         setResult({
           isLoading: false,
           isAuthorized: false,
-          userIdentifier: "",
+          username: "",
         });
       });
     return () => {
