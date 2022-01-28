@@ -1,30 +1,12 @@
 # Passage Example React App
 
-This example application uses the Passage Element in a React application to authenticate users using biometrics or magic links. The server uses the 
-[Passage Node.js SDK](https://www.npmjs.com/package/@passageidentity/passage-node) to verify users on authenticated endpoints. To run this example application, follow the instructions below to install and start the 
+This example application uses the Passage Element in a React application to authenticate users using biometrics or magic links. To run this example application, follow the instructions below to install and start the 
 frontend and backend server.
 
 ## Configure Your Environment Variables
 
-1. For both the frontend and backend folders, copy the EXAMPLE.env file to your own .env file.
+1. Copy the EXAMPLE.env file to your own .env file.
 2. Replace the example variables with your own Passage App ID and API Key. You can get these from the [Passage Console](https://console.passage.id).
-
-## Building the Server
-
-Navigate to the backend folder and do the following:
-
-Install dependencies
-```bash
-npm install
-```
-
-Start the server in development mode
-```bash
-npm run start
-```
-
-The server will run on http://localhost:7000.
-
 
 ## Building the Client
 
@@ -44,7 +26,7 @@ The client will run on http://localhost:3000, which you can navigate to in your 
 
 ## Authenticate Requests With Passage
 
-Navigate to [http://localhost:3000](http://localhost:3000) and see what it's like authenticating users using Passage with React and Express.js!
+Navigate to [http://localhost:3000](http://localhost:3000) and see what it's like authenticating users using Passage with React!
 
 # Using Passage with React
 
@@ -67,8 +49,13 @@ It's then just a matter of embedding the passage-auth element into your componen
 ```
 
 ## Getting Authentication Status and User Information
-After the user has logged in with Passage, all requests to your backend need to be authenticated using the JWT provided by Passage. In this example, we set the JWT in an Authorization header to our API server. 
-
-This project uses a simple [Express](https://expressjs.com/) backend and the [Passage Node.js SDK](https://www.npmjs.com/package/@passageidentity/passage-node) to authenticate requests and retrieve user data for your application. You can see how that runs in the [/backend](https://github.com/passageidentity/example-react/tree/main/backend) folder of this repository.
-
-This example wraps communication with the backend API in a custom hook in [src/models/hooks/useAuthStatus.js](https://github.com/passageidentity/example-react/blob/main/frontend/src/models/hooks/useAuthStatus.js) for re-use in any react component.
+After the user has logged in with Passage, you can retrieve basic user information from Passage using the PassageUser class exported from `@passageidentity/passage-auth/passage-user`. This example wraps this functionality into a reusable react hook in [useAuthStatus](https://github.com/passageidentity/example-react/blob/main/src/models/hooks/useAuthStatus.js):
+```
+import { PassageUser } from '@passageidentity/passage-auth/passage-user';
+...
+useEffect(() => {
+    let cancelRequest = false;
+    new PassageUser().userInfo().then(userInfo=> {
+...
+```
+Any additional requests to your backend server that require user authorization can use one of the Passage backend [libraries](https://docs.passage.id/backend-libraries/overview) to safely authenticate user tokens.

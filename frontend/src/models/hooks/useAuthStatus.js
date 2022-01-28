@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-
-const API_URL = "http://localhost:7000";
+import { PassageUser } from '@passageidentity/passage-auth/passage-user';
 
 export function useAuthStatus() {
   const [result, setResult] = useState({
@@ -12,40 +10,25 @@ export function useAuthStatus() {
 
   useEffect(() => {
     let cancelRequest = false;
-    const authToken = localStorage.getItem("psg_auth_token");
-    axios
-      .post(`${API_URL}/auth`, null, {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        },
-      })
-      .then((response) => {
-        if (cancelRequest) {
+    new PassageUser().userInfo().then(userInfo=> {
+      if( cancelRequest ) {
           return;
-        }
-        const { authStatus, identifier } = response.data;
-        if (authStatus === "success") {
+      }
+      if(userInfo === undefined){
           setResult({
-            isLoading: false,
-            isAuthorized: authStatus,
-            username: identifier,
-          });
-        } else {
-          setResult({
-            isLoading: false,
-            isAuthorized: false,
-            username: "",
-          });
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setResult({
+              isLoading: false,
+              isAuthorized: false,
+              username: "",
+            });
+            return;
+      }
+      const username = userInfo.email ? userInfo.email : userInfo.phone;
+      setResult({
           isLoading: false,
-          isAuthorized: false,
-          username: "",
+          isAuthorized: true,
+          username,
         });
-      });
+    });
     return () => {
       cancelRequest = true;
     };
