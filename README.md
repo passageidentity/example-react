@@ -1,16 +1,16 @@
 # Passage Example React App
 
 This example application uses the Passage Element in a React application to authenticate users using biometrics or magic links. To run this example application, follow the instructions below to install and start the 
-frontend and backend server.
+application.
 
 ## Configure Your Environment Variables
 
 1. Copy the EXAMPLE.env file to your own .env file.
-2. Replace the example variables with your own Passage App ID and API Key. You can get these from the [Passage Console](https://console.passage.id).
+2. Replace the example variable with your own Passage App ID. You can get these from the [Passage Console](https://console.passage.id).
 
 ## Building the Client
 
-Navigate to the frontend folder and do the following:
+Run the following commands:
 
 Install dependencies
 ```bash
