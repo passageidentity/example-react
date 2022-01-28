@@ -4,9 +4,7 @@
   "private": true,
   "dependencies": {
     "@passageidentity/passage-auth": "latest",
-    "axios": "^0.21.4",
     "dotenv": "^8.2.0",
-    "js-cookie": "^3.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.3.0"
