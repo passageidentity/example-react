@@ -1,64 +1,28 @@
 .mainHeader{
-  display: flex;
-  align-items: flex-start;
-  padding-top: 20px;
-  color: #263768;
-  position: relative;
-}
-  
-.passageLogo {
-  background-image: url('../assets/passage-full-logo.svg');
-  background-repeat: no-repeat;
-  width: 300px;
-  height: 60px;
-  margin-left: 40px;
-  cursor: pointer;
-}
-
-.spacer {
-  flex-grow: 1;
-} 
-  
-.home {
+    padding: 20px 30px;
     display: flex;
     align-items: center;
-    margin-right: 20px;
-  }
-  
-.links {
-  display: flex;
-  text-decoration: underline;
-  cursor: pointer;
-  align-items: center;
+    background-color: #27417E;
+    color: white;
 }
-
-.text {
-  margin-right: 10px;
-  color: #263768;
-  text-decoration-color: #263768;
+.header-text {
+    font-size: 24px;
+    margin-left: 10px;
 }
-  
-.icon {
-  background-image: url('../assets/home.svg');
-  background-repeat: no-repeat;
-  width: 28px;
-  height: 26px;
-}
-
-.logout {
-  color: #263768;
-  text-decoration-color: #263768;
-  user-select: none;
-  cursor: pointer;
-  margin-right: 20px;
-}
-
-@media screen and (max-width: 530px) {
-  .passageLogo {
-    background-image: url('../assets/passage-logo.svg');
+    
+.passageLogo {
+    background-image: url('https://storage.googleapis.com/customer-assets-prod-ycfxsoekhrvsmkgvonyymmic/blog-passage-svg/passage-logo.svg');
     background-repeat: no-repeat;
-    width: 50px;
+    width: 60px;
     height: 60px;
-    margin-left: 30px;
-  }
+    cursor: pointer;
+}
+.spacer {
+    flex-grow: 1;
+}
+    
+.link {
+    margin-left: 20px;
+    color: white;
+    text-decoration-color: white;
 }

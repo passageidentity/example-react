@@ -1,61 +1,70 @@
-# Passage Example React App
+# Getting Started with Create React App
 
-This example application uses the Passage Element in a React application to authenticate users using biometrics or magic links. To run this example application, follow the instructions below to install and start the 
-application.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Configure Your Environment Variables
+## Available Scripts
 
-1. Copy the EXAMPLE.env file to your own .env file.
-2. Replace the example variable with your own Passage App ID. You can get these from the [Passage Console](https://console.passage.id).
+In the project directory, you can run:
 
-## Building the Client
+### `npm start`
 
-Run the following commands:
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Install dependencies
-```bash
-npm install
-```
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Start the client in development mode
-```bash
-npm run start
-```
+### `npm test`
 
-The client will run on http://localhost:3000, which you can navigate to in your browser.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Authenticate Requests With Passage
+### `npm run build`
 
-Navigate to [http://localhost:3000](http://localhost:3000) and see what it's like authenticating users using Passage with React!
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-# Using Passage with React
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## Importing and Using the Passage-Auth Custom Element
-The easiest way to add authentication to a web frontend is with a Passage Auth custom element. First you'll need to install the [passage-auth](https://www.npmjs.com/package/@passageidentity/passage-auth) package from npm:
-```
-npm i --save @passageidentity/passage-auth
-```
-Then import the package in the module where you intend to use the custom element
-```
-import '@passageidentity/passage-auth'
-```
-Importing this script will register the Passage custom element for use in your React components. For more information about custom elements refer to the [online documentation](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-It's then just a matter of embedding the passage-auth element into your component that will handle login. This is done in this example in [frontend/src/views/Home.js](https://github.com/passageidentity/example-react/blob/main/frontend/src/views/Home.js):
-```html
-<div className={styles.authContainer}>
-  <passage-auth app-id={process.env.REACT_APP_PASSAGE_APP_ID}></passage-auth>
-</div>
-```
+### `npm run eject`
 
-## Getting Authentication Status and User Information
-After the user has logged in with Passage, you can retrieve basic user information from Passage using the PassageUser class exported from `@passageidentity/passage-auth/passage-user`. This example wraps this functionality into a reusable react hook in [useAuthStatus](https://github.com/passageidentity/example-react/blob/main/src/models/hooks/useAuthStatus.js):
-```
-import { PassageUser } from '@passageidentity/passage-auth/passage-user';
-...
-useEffect(() => {
-    let cancelRequest = false;
-    new PassageUser().userInfo().then(userInfo=> {
-...
-```
-The PassageUser class can be used as a route guard in your application, but it should NOT be make authorization decisions when fetching data from an API server. Route guards provide a better user experience, but less security than using one of Passage's backend libraries. For applications using an API server, you must use one of the Passage [backend SDKs](https://docs.passage.id/backend-libraries/overview) to safely verify user authentication tokens.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
