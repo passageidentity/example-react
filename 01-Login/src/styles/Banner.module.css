@@ -4,25 +4,27 @@
     align-items: center;
     background-color: #27417E;
     color: white;
-}
-.header-text {
+  }
+  
+  .header-text {
     font-size: 24px;
     margin-left: 10px;
-}
+  }
     
-.passageLogo {
-    background-image: url('https://storage.googleapis.com/customer-assets-prod-ycfxsoekhrvsmkgvonyymmic/blog-passage-svg/passage-logo.svg');
+  .passageLogo {
+    background-image: url('https://storage.googleapis.com/passage-docs/passage-logo.svg');
     background-repeat: no-repeat;
     width: 60px;
     height: 60px;
     cursor: pointer;
-}
-.spacer {
+  }
+  
+  .spacer {
     flex-grow: 1;
-}
-    
-.link {
+  }
+
+  .link {
     margin-left: 20px;
     color: white;
     text-decoration-color: white;
-}
+  }
