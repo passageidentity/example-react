@@ -1,11 +1,6 @@
 body {
-    margin: 0px;
-    height: 100vh;
-    font-family: sans-serif;
-    background-color: #E5E5E5;
-  }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  margin: 0px;
+  height: 100vh;
+  font-family: sans-serif;
+  background-color: #E5E5E5;
 }

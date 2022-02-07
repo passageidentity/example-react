@@ -2,7 +2,7 @@ import {useCurrentUser} from '../hooks/useCurrentUser';
 import styles from '../styles/Dashboard.module.css';
 
 function Dashboard() {
-    const {isLoading, isAuthorized, userID} = useCurrentUser();
+    const {isLoading, isAuthorized, username} = useCurrentUser();
 
     if (isLoading) {
         return null;
@@ -14,7 +14,7 @@ function Dashboard() {
                 <div className={styles.message}>
                     You successfully signed in with Passage.
                     <br/><br/>
-                    Your Passage User ID is: <b>{userID}</b>
+                    Your email is: <b>{username}</b>
                 </div>
             </div>
         )
