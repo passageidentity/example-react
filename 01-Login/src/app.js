@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from "./views/Home";
 import Dashboard from "./views/Dashboard";
-import Banner from "./components/Banner";
+import Banner from "./components/banner";
 import styles from './styles/App.module.css';
 
 function App() {
