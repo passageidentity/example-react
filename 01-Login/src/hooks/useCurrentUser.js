@@ -18,7 +18,7 @@ export function useCurrentUser() {
                 setResult({
                     isLoading: false,
                     isAuthorized: false,
-                    userID: "",
+                    username: "",
                 });
                 return;
             }
