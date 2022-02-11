@@ -11,7 +11,7 @@ function Dashboard() {
     <>
         You successfully signed in with Passage.
         <br/><br/>
-        Your email is: <b>{username}</b>
+        Your username is: <b>{username}</b>
     </>
 
     const unauthorizedBody = 
