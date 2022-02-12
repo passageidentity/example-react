@@ -1,61 +1,8 @@
-# Passage Example React App
+# Passage + React Examples
+This repository contains React.js examples for different use cases with Passage.
 
-This example application uses the Passage Element in a React application to authenticate users using biometrics or magic links. To run this example application, follow the instructions below to install and start the 
-application.
+# What is Passage
+Passage is an authentication platform that enables developers to add biometric authentication to their web and mobile applications. Passage provides a full UI/UX login and registration in a web component that can be added to any application, as well as backend libraries in Python, Go, and Node.js to support user verification. To learn more visit our [website](https://passage.id).
 
-## Configure Your Environment Variables
-
-1. Copy the EXAMPLE.env file to your own .env file.
-2. Replace the example variable with your own Passage App ID. You can get these from the [Passage Console](https://console.passage.id).
-
-## Building the Client
-
-Run the following commands:
-
-Install dependencies
-```bash
-npm install
-```
-
-Start the client in development mode
-```bash
-npm run start
-```
-
-The client will run on http://localhost:3000, which you can navigate to in your browser.
-
-## Authenticate Requests With Passage
-
-Navigate to [http://localhost:3000](http://localhost:3000) and see what it's like authenticating users using Passage with React!
-
-# Using Passage with React
-
-## Importing and Using the Passage-Auth Custom Element
-The easiest way to add authentication to a web frontend is with a Passage Auth custom element. First you'll need to install the [passage-auth](https://www.npmjs.com/package/@passageidentity/passage-auth) package from npm:
-```
-npm i --save @passageidentity/passage-auth
-```
-Then import the package in the module where you intend to use the custom element
-```
-import '@passageidentity/passage-auth'
-```
-Importing this script will register the Passage custom element for use in your React components. For more information about custom elements refer to the [online documentation](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
-
-It's then just a matter of embedding the passage-auth element into your component that will handle login. This is done in this example in [frontend/src/views/Home.js](https://github.com/passageidentity/example-react/blob/main/frontend/src/views/Home.js):
-```html
-<div className={styles.authContainer}>
-  <passage-auth app-id={process.env.REACT_APP_PASSAGE_APP_ID}></passage-auth>
-</div>
-```
-
-## Getting Authentication Status and User Information
-After the user has logged in with Passage, you can retrieve basic user information from Passage using the PassageUser class exported from `@passageidentity/passage-auth/passage-user`. This example wraps this functionality into a reusable react hook in [useAuthStatus](https://github.com/passageidentity/example-react/blob/main/src/models/hooks/useAuthStatus.js):
-```
-import { PassageUser } from '@passageidentity/passage-auth/passage-user';
-...
-useEffect(() => {
-    let cancelRequest = false;
-    new PassageUser().userInfo().then(userInfo=> {
-...
-```
-The PassageUser class can be used as a route guard in your application, but it should NOT be make authorization decisions when fetching data from an API server. Route guards provide a better user experience, but less security than using one of Passage's backend libraries. For applications using an API server, you must use one of the Passage [backend SDKs](https://docs.passage.id/backend-libraries/overview) to safely verify user authentication tokens.
+# Examples in This Repo
+* [Authenticating with Passage](./01-Login)
