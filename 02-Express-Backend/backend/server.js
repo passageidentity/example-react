@@ -16,8 +16,8 @@ app.use(
 );
 
 const passage = new Passage({
-  appID: process.env.REACT_APP_PASSAGE_APP_ID,
-  apiKey: process.env.REACT_APP_PASSAGE_API_KEY,
+  appID: process.env.PASSAGE_APP_ID,
+  apiKey: process.env.PASSAGE_API_KEY,
   authStrategy: "HEADER",
 });
 
