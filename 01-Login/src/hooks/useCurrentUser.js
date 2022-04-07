@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { PassageUser } from '@passageidentity/passage-auth/passage-user';
+import { PassageUser } from '@passageidentity/passage-elements/passage-user';
 
 export function useCurrentUser() {
     const [result, setResult] = useState({

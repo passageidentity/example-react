@@ -1,4 +1,4 @@
-import "@passageidentity/passage-auth";
+import "@passageidentity/passage-elements/passage-auth";
 
 function Home() {
     return (
