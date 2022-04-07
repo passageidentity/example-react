@@ -38,7 +38,7 @@ import '@passageidentity/passage-elements/passage-auth'
 ```
 Importing this script will register the Passage custom element for use in your React components. For more information about custom elements refer to the [online documentation](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 
-Its then just a matter of embedding the passage-auth element into your component that will handle login. This is done in this example in [frontend/src/views/Home.js](https://github.com/passageidentity/example-react/blob/main/frontend/src/views/Home.js):
+Its then just a matter of embedding the passage-auth element into your component that will handle login. This is done in this example in the home component:
 ```html
 <div className="form-container">
   <passage-auth
