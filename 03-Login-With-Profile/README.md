@@ -1,6 +1,6 @@
 # Passage Example React App
 
-This example application uses the Passage Element in a React application to authenticate users using biometrics or magic links. To run this example application, follow the instructions below to install and start the application.
+This example application uses the Passage Element in a React application to authenticate users using biometrics or magic links. The homepage uses the passage-auth element to handle user login and registration and the dashboard utilizes passage-profile to allow the user to view and manage their profile data. To run this example application, follow the instructions below to install and start the application.
 
 ## Configure Your Environment Variables
 
@@ -27,7 +27,7 @@ Navigate to [http://localhost:3000](http://localhost:3000) and see what it's lik
 
 # Using Passage with React
 
-## Importing and Using the Passage-Auth Custom Element
+## Adding Authentication to the Frontend
 The easiest way to add authentication to a web frontend is with a Passage Auth custom element. First you'll need to install the [passage-elements](https://www.npmjs.com/package/@passageidentity/passage-elements) package from npm:
 ```
 npm i --save @passageidentity/passage-elements
@@ -36,7 +36,7 @@ Then import the package in the module where you intend to use the custom element
 ```
 import '@passageidentity/passage-elements/passage-auth'
 ```
-Importing this script will register the Passage custom element for use in your React components. For more information about custom elements refer to the [online documentation](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
+Importing this script will register the Passage-Auth custom element for use in your React components. For more information about custom elements refer to the [online documentation](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 
 Its then just a matter of embedding the passage-auth element into your component that will handle login. This is done in this example in the home component:
 ```html
@@ -45,6 +45,19 @@ Its then just a matter of embedding the passage-auth element into your component
     app-id={process.env.REACT_APP_PASSAGE_APP_ID}
   />
 </div>
+```
+
+To add the Profile Element to the dashboard, do the following:
+```
+import '@passageidentity/passage-elements/passage-profile'
+```
+This import will register the passage-profile element for use in your React component. It can then be used in the dashboard component:
+```html
+<>
+  You successfully signed in with Passage.
+  <br/><br/>
+  <passage-profile app-id={process.env.REACT_APP_PASSAGE_APP_ID}></passage-profile>
+</>
 ```
 
 ## Getting Authentication Status and User Information

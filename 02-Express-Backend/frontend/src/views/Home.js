@@ -1,8 +1,8 @@
-import "@passageidentity/passage-auth";
+import "@passageidentity/passage-elements/passage-auth";
 
 function Home() {
     return (
-        <passage-auth app-id={process.env.PASSAGE_APP_ID}></passage-auth>
+        <passage-auth app-id={process.env.REACT_APP_PASSAGE_APP_ID}></passage-auth>
     );
 }
 

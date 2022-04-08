@@ -5,7 +5,6 @@ export function useCurrentUser() {
     const [result, setResult] = useState({
         isLoading: true,
         isAuthorized: false,
-        username: '',
     });
 
     useEffect(() => {
@@ -18,15 +17,12 @@ export function useCurrentUser() {
                 setResult({
                     isLoading: false,
                     isAuthorized: false,
-                    username: "",
                 });
                 return;
             }
             setResult({
                 isLoading: false,
                 isAuthorized: true,
-                username: userInfo.email ? userInfo.email : userInfo.phone
-                ,
             });
         });
         return () => {
