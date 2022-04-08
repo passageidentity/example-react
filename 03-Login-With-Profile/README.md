@@ -1,6 +1,6 @@
 # Passage Example React App
 
-This example application uses the Passage Element in a React application to authenticate users using biometrics or magic links. To run this example application, follow the instructions below to install and start the application.
+This example application uses the Passage Element in a React application to authenticate users using biometrics or magic links. The homepage uses the passage-auth element to handle user login and registration and the dashboard utilizes passage-profile to allow the user to view and manage their profile data. To run this example application, follow the instructions below to install and start the application.
 
 ## Configure Your Environment Variables
 
