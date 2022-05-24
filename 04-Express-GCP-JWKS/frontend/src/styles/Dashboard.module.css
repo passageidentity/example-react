@@ -1,0 +1,18 @@
+.dashboard{
+    padding: 30px 30px 20px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.message {
+    overflow-wrap: anywhere;
+}
+
+.link {
+    color: black;
+    text-decoration-color: black;
+}
