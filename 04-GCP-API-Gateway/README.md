@@ -64,7 +64,7 @@ Once the Cloud Function has been created, be sure to copy its Trigger URL for us
 swagger: '2.0'
 info:
   title: user-gateway
-  description: Sample API Gateway with a Google Cloud Functions backend
+  description: Sample API Gateway with a Google Cloud Function backend
   version: 1.0.0
 paths:
   /user:
@@ -90,7 +90,6 @@ securityDefinitions:
     authorizationUrl: ""
     flow: "implicit"
     type: "oauth2"
-    # The value below should be unique
     x-google-issuer: "YOUR_PASSAGE_APP_ID"
     x-google-jwks_uri: "https://auth.passage.id/v1/apps/YOUR_PASSAGE_APP_ID/.well-known/jwks.json"
     x-google-audiences: "YOUR_SERVER_URL" # i.e. "http://localhost:3000", etc.
