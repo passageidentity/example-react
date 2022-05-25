@@ -1,21 +1,18 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:7000";
-
 export function useAuthStatus() {
   const [result, setResult] = useState({
     isLoading: true,
     isAuthorized: false,
-    message: "",
-    GCP_API_GATEWAY_URL: "",
+    username: "",
   });
 
   useEffect(() => {
     let cancelRequest = false;
     const authToken = localStorage.getItem("psg_auth_token");
     axios
-      .post(`${API_URL}/JWKAuth`, null, {
+      .get(process.env.REACT_APP_GCP_GATEWAY_URL, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
@@ -24,20 +21,18 @@ export function useAuthStatus() {
         if (cancelRequest) {
           return;
         }
-        const { message, GCP_API_GATEWAY_URL } = response.data;
-        if (message) {
+        const { email, phone } = response.data;
+        if (email || phone) {
           setResult({
             isLoading: false,
             isAuthorized: true,
-            message: message,
-            GCP_API_GATEWAY_URL: GCP_API_GATEWAY_URL,
+            username: email,
           });
         } else {
           setResult({
             isLoading: false,
             isAuthorized: false,
-            message: "",
-            GCP_API_GATEWAY_URL: "",
+            username: "",
           });
         }
       })
@@ -46,8 +41,7 @@ export function useAuthStatus() {
         setResult({
           isLoading: false,
           isAuthorized: false,
-          message: "",
-          GCP_API_GATEWAY_URL: "",
+          username: "",
         });
       });
     return () => {

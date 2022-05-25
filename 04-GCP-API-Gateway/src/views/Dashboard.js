@@ -2,19 +2,16 @@ import {useAuthStatus} from '../hooks/useAuthStatus';
 import styles from '../styles/Dashboard.module.css';
 
 function Dashboard() {
-    const {isLoading, isAuthorized, message, GCP_API_GATEWAY_URL} = useAuthStatus();
+    const {isLoading, isAuthorized, username} = useAuthStatus();
 
     if (isLoading) {
         return null;
     }
     const authorizedBody = 
     <>
-        You successfully logged in with Passage.
+        You successfully signed in with Passage.
         <br/><br/>
-        The following message is from the GCP API Gateway:
-        <div style={{backgroundColor: '#D3D3D3', textAlign: 'center'}}>{GCP_API_GATEWAY_URL}</div>
-        <br/><br/>
-        <b>{message}</b>
+        Your username is: <b>{username}</b>
     </>
 
     const unauthorizedBody = 
