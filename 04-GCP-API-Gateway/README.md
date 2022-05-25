@@ -12,6 +12,8 @@ This example application uses the Passage Element in a React application to auth
 This Google Cloud Function will act as our 'server' that will process authenticated requests brokered from GCP's API Gateway which we will set up in the next step.
 Below is an example of a Google Cloud Function you can use:
 ```javascript
+const Passage = require("@passageidentity/passage-node");
+
 /**
  * Responds with a user's information.
  *
@@ -28,8 +30,6 @@ Below is an example of a Google Cloud Function you can use:
     res.set('Access-Control-Max-Age', '3600');
     return res.status(204).send('');
   }
-
-  const Passage = require("@passageidentity/passage-node");
 
   // extract JWT from original request forwarded by API Gateway
   const userInfo = req.headers['x-apigateway-api-userinfo'];
