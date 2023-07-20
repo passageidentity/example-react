@@ -1,11 +1,13 @@
-# Passage Example React App
+# Passage Example React App with Profile
+<img alt="npm" src="https://img.shields.io/npm/v/@passageidentity/passage-elements?color=43BD15&label=@passageidentity/passage-elements">
+<br/><br/>
 
 This example application uses the Passage Element in a React application to authenticate users using biometrics or magic links. The homepage uses the passage-auth element to handle user login and registration and the dashboard utilizes passage-profile to allow the user to view and manage their profile data. To run this example application, follow the instructions below to install and start the application.
 
 ## Configure Your Environment Variables
 
 1. Copy the EXAMPLE.env file to your own .env file.
-2. Replace the example variables with your own Passage App ID and API Key. You can get these from the [Passage Console](https://console.passage.id).
+2. Replace the example variables with your own Passage App ID. You can get these from the [Passage Console](https://console.passage.id).
 
 ## Building the Client
 

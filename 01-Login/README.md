@@ -1,5 +1,8 @@
 # Passage Example React App
 
+<img alt="npm" src="https://img.shields.io/npm/v/@passageidentity/passage-elements?color=43BD15&label=@passageidentity/passage-elements">
+<br/><br/>
+
 This example application uses the Passage Element in a React application to authenticate users using biometrics or magic links. To run this example application, follow the instructions below to install and start the application.
 
 ## Configure Your Environment Variables
