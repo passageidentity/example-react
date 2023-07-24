@@ -1,3 +1,7 @@
+<img src="https://storage.googleapis.com/passage-docs/passage-logo-gradient.svg" alt="Passage logo" style="width:250px;"/>
+
+<br/><br/>
+
 # Passage + React Examples
 This repository contains React.js examples for different use cases with Passage.
 
